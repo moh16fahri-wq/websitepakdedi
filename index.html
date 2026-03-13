@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>SMKN 1 Gondang Nganjuk — Unggul, Terampil, Berdaya Saing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<nav id="navbar">
+  <div class="nav-wrap">
+    <div class="nav-logo" onclick="triggerLogoUpload()" title="Klik ganti logo">
+      <div class="logo-gem" id="logoGem"><span id="logoTxt">S1G</span><img id="logoImg" src="" style="display:none"/></div>
+      <input type="file" id="logoUploadInput" accept="image/*" style="display:none" onchange="handleLogoUpload(event)"/>
+      <div class="logo-label">
+        <span class="lname">SMKN 1 Gondang</span>
+        <span class="lsub">Nganjuk · Est. 1980</span>
+      </div>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a onclick="nav('home')">Beranda</a></li>
+      <li><a onclick="nav('about')">Tentang</a></li>
+      <li><a onclick="nav('programs')">Jurusan</a></li>
+      <li><a onclick="nav('facilities')">Fasilitas</a></li>
+      <li><a onclick="nav('gallery')">Galeri</a></li>
+      <li><a onclick="nav('contact')">Kontak</a></li>
+      <li><a onclick="openPPDB()" class="nav-ppdb">Daftar PPDB ✦</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="aurora"></div>
+  <div class="aurora aurora2"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-orb orb3"></div>
+
+  <button class="bg-swap-btn" onclick="triggerHeroBgUpload()">⬡ Ganti BG</button>
+  <input type="file" id="heroBgInput" accept="image/*" style="display:none" onchange="handleHeroBgUpload(event)"/>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-pill">
+        <span class="pill-dot"></span>Penerimaan Siswa Baru 2025/2026
+      </div>
+      <h1 class="hero-h1">
+        Wujudkan<br/>
+        <span class="italic-em">Impianmu</span><br/>
+        Di Sini
+      </h1>
+      <p class="hero-p">SMKN 1 Gondang Nganjuk — sekolah kejuruan terbaik yang mencetak generasi terampil, berkarakter, dan siap bersaing di level nasional.</p>
+      <div class="hero-btns">
+        <button class="btn-emerald" onclick="openPPDB()">Daftar PPDB Sekarang →</button>
+        <button class="btn-outline-w" onclick="nav('programs')">Lihat Jurusan</button>
+      </div>
+      <div class="hero-kpi">
+        <div class="kpi"><span class="kpi-n" data-target="1000">0</span><span class="kpi-plus">+</span><span class="kpi-l">Siswa Aktif</span></div>
+        <div class="kpi-line"></div>
+        <div class="kpi"><span class="kpi-n" data-target="7">0</span><span class="kpi-l">Jurusan Unggulan</span></div>
+        <div class="kpi-line"></div>
+        <div class="kpi"><span class="kpi-n" data-target="40">0</span><span class="kpi-plus">+</span><span class="kpi-l">Tahun Berpengalaman</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card-wrap" onclick="triggerHeroImgUpload()">
+        <div class="hero-card-glow"></div>
+        <div class="hero-card">
+          <img id="heroImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='500'%3E%3Crect width='440' height='500' fill='%230a1a12'/%3E%3Ctext x='220' y='235' font-size='80' text-anchor='middle' fill='%2310b981' opacity='.25'%3E🎓%3C/text%3E%3Ctext x='220' y='300' font-size='13' text-anchor='middle' fill='%2310b981' opacity='.45' font-family='sans-serif'%3EKlik untuk upload foto%3C/text%3E%3C/svg%3E" alt="Hero"/>
+          <div class="hero-card-overlay">📷 Ganti Foto</div>
+        </div>
+        <input type="file" id="heroImgInput" accept="image/*" style="display:none" onchange="handleHeroImgUpload(event)"/>
+        <div class="hero-float hf1">🏆 Juara Provinsi</div>
+        <div class="hero-float hf2">⭐ Sekolah Unggulan</div>
+        <div class="hero-float hf3">💼 90% Terserap Kerja</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Gulir ke bawah</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section id="about" class="about-sec">
+  <div class="about-img-side">
+    <div class="about-photo-frame" onclick="triggerAboutImgUpload()">
+      <div class="apf-shadow"></div>
+      <div class="apf-main">
+        <img id="aboutImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='440'%3E%3Crect width='500' height='440' fill='%230a1a12'/%3E%3Ctext x='250' y='205' font-size='80' text-anchor='middle' fill='%2310b981' opacity='.2'%3E🏫%3C/text%3E%3Ctext x='250' y='275' font-size='12' text-anchor='middle' fill='%2310b981' opacity='.4' font-family='sans-serif'%3EKlik upload foto gedung%3C/text%3E%3C/svg%3E" alt="Gedung"/>
+        <div class="photo-hover-ov">📷 Ganti Foto</div>
+      </div>
+      <input type="file" id="aboutImgInput" accept="image/*" style="display:none" onchange="handleAboutImgUpload(event)"/>
+      <div class="about-badge-card">
+        <span class="abc-n">40+</span>
+        <span class="abc-l">Tahun Mengabdi</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-text-side">
+    <div class="eyebrow">Tentang Kami</div>
+    <h2 class="sec-title">Mendidik Dengan<br/><em>Hati & Ilmu</em></h2>
+    <p class="about-body">SMKN 1 Gondang Nganjuk berkomitmen menghasilkan lulusan berkualitas yang mampu bersaing di era global. Kami mengintegrasikan kurikulum berbasis industri, fasilitas modern, dan pembentukan karakter dalam satu ekosistem pendidikan yang utuh.</p>
+    <div class="vm-tab-row">
+      <button class="vmtab active" onclick="vmSwitch(this,'visi')">Visi</button>
+      <button class="vmtab" onclick="vmSwitch(this,'misi')">Misi</button>
+      <button class="vmtab" onclick="vmSwitch(this,'nilai')">Nilai</button>
+    </div>
+    <div class="vmcontent" id="vm-visi">Menjadi SMK unggulan yang menghasilkan lulusan berkompeten, berkarakter mulia, dan berdaya saing di tingkat nasional maupun global.</div>
+    <div class="vmcontent hidden" id="vm-misi">
+      <ul class="vm-ul"><li>Pendidikan kejuruan berkualitas tinggi</li><li>Keterampilan sesuai kebutuhan industri</li><li>Karakter siswa yang berakhlak mulia</li><li>Kemitraan strategis dengan dunia industri</li></ul>
+    </div>
+    <div class="vmcontent hidden" id="vm-nilai">
+      <ul class="vm-ul"><li>✦ Integritas — Jujur dalam setiap tindakan</li><li>✦ Inovasi — Berkembang tanpa henti</li><li>✦ Kolaborasi — Bersinergi meraih yang terbaik</li><li>✦ Keunggulan — Standar tinggi setiap hari</li></ul>
+    </div>
+    <button class="btn-emerald" onclick="openPPDB()" style="margin-top:1.5rem;">Daftar Sekarang →</button>
+  </div>
+</section>
+
+<section id="programs" class="programs-sec">
+  <div class="programs-bg-deco"></div>
+  <div class="container">
+    <div class="sec-head center">
+      <div class="eyebrow light">Program Keahlian</div>
+      <h2 class="sec-title light">Temukan <em>Passion-mu</em></h2>
+      <p class="sec-desc">Tujuh program keahlian dirancang bersama industri terkemuka untuk menjamin relevansi dan daya saing lulusan.</p>
+    </div>
+    <div class="prog-grid">
+
+      <div class="prog-card" data-prog="TKJ">
+        <div class="prog-icon-box" onclick="event.stopPropagation();triggerProgIcon('tkj')">
+          <span id="progEmoji_tkj">💻</span>
+          <img id="progIcon_tkj" src="" style="display:none"/>
+          <div class="pib-ov">📷</div>
+        </div>
+        <input type="file" id="progIconInput_tkj" accept="image/*" style="display:none" onchange="handleProgIcon(event,'tkj')"/>
+        <div class="prog-meta">
+          <span class="prog-badge">Teknologi</span>
+          <h3>Teknik Komputer & Jaringan</h3>
+          <p>Kuasai jaringan, server, dan keamanan siber dari tingkat dasar hingga profesional.</p>
+          <div class="prog-tags"><span>Networking</span><span>Cyber Security</span><span>Cloud</span></div>
+        </div>
+        <button class="prog-more" onclick="showProgDetail('TKJ')">Detail ↗</button>
+      </div>
+
+      <div class="prog-card" data-prog="TSM">
+        <div class="prog-icon-box" onclick="event.stopPropagation();triggerProgIcon('tsm')">
+          <span id="progEmoji_tsm">🏍️</span>
+          <img id="progIcon_tsm" src="" style="display:none"/>
+          <div class="pib-ov">📷</div>
+        </div>
+        <input type="file" id="progIconInput_tsm" accept="image/*" style="display:none" onchange="handleProgIcon(event,'tsm')"/>
+        <div class="prog-meta">
+          <span class="prog-badge">Otomotif</span>
+          <h3>Teknik Sepeda Motor</h3>
+          <p>Ahli perawatan dan perbaikan motor injeksi modern berstandar dealer resmi.</p>
+          <div class="prog-tags"><span>EFI System</span><span>Tune Up</span><span>Kelistrikan</span></div>
+        </div>
+        <button class="prog-more" onclick="showProgDetail('TSM')">Detail ↗</button>
+      </div>
+
+      <div class="prog-card prog-card-hl" data-prog="TKR">
+        <div class="prog-icon-box" onclick="event.stopPropagation();triggerProgIcon('tkr')">
+          <span id="progEmoji_tkr">🚗</span>
+          <img id="progIcon_tkr" src="" style="display:none"/>
+          <div class="pib-ov">📷</div>
+        </div>
+        <input type="file" id="progIconInput_tkr" accept="image/*" style="display:none" onchange="handleProgIcon(event,'tkr')"/>
+        <div class="prog-meta">
+          <span class="prog-badge">Otomotif</span>
+          <h3>Teknik Kendaraan Ringan</h3>
+          <p>Spesialis perawatan kendaraan roda empat modern dengan teknologi diagnostik terkini.</p>
+          <div class="prog-tags"><span>Engine</span><span>AC Mobil</span><span>OBD</span></div>
+        </div>
+        <button class="prog-more" onclick="showProgDetail('TKR')">Detail ↗</button>
+      </div>
+
+      <div class="prog-card" data-prog="APHP">
+        <div class="prog-icon-box" onclick="event.stopPropagation();triggerProgIcon('aphp')">
+          <span id="progEmoji_aphp">🍞</span>
+          <img id="progIcon_aphp" src="" style="display:none"/>
+          <div class="pib-ov">📷</div>
+        </div>
+        <input type="file" id="progIconInput_aphp" accept="image/*" style="display:none" onchange="handleProgIcon(event,'aphp')"/>
+        <div class="prog-meta">
+          <span class="prog-badge">Agribisnis</span>
+          <h3>Agribisnis Pengolahan Pangan</h3>
+          <p>Inovator pangan yang mengolah hasil pertanian menjadi produk bernilai tinggi.</p>
+          <div class="prog-tags"><span>Food Tech</span><span>HACCP</span><span>Packaging</span></div>
+        </div>
+        <button class="prog-more" onclick="showProgDetail('APHP')">Detail ↗</button>
+      </div>
+
+      <div class="prog-card" data-prog="ATU">
+        <div class="prog-icon-box" onclick="event.stopPropagation();triggerProgIcon('atu')">
+          <span id="progEmoji_atu">🐔</span>
+          <img id="progIcon_atu" src="" style="display:none"/>
+          <div class="pib-ov">📷</div>
+        </div>
+        <input type="file" id="progIconInput_atu" accept="image/*" style="display:none" onchange="handleProgIcon(event,'atu')"/>
+        <div class="prog-meta">
+          <span class="prog-badge">Agribisnis</span>
+          <h3>Agribisnis Ternak Unggas</h3>
+          <p>Kelola peternakan unggas komersial modern dengan efisiensi dan teknologi terkini.</p>
+          <div class="prog-tags"><span>Budidaya</span><span>Nutrisi</span><span>Manajemen</span></div>
+        </div>
+        <button class="prog-more" onclick="showProgDetail('ATU')">Detail ↗</button>
+      </div>
+
+      <div class="prog-card" data-prog="ATPH">
+        <div class="prog-icon-box" onclick="event.stopPropagation();triggerProgIcon('atph')">
+          <span id="progEmoji_atph">🌾</span>
+          <img id="progIcon_atph" src="" style="display:none"/>
+          <div class="pib-ov">📷</div>
+        </div>
+        <input type="file" id="progIconInput_atph" accept="image/*" style="display:none" onchange="handleProgIcon(event,'atph')"/>
+        <div class="prog-meta">
+          <span class="prog-badge">Agribisnis</span>
+          <h3>Agribisnis Tanaman Pangan</h3>
+          <p>Budidaya cerdas dengan sistem hidroponik, organik, dan agribisnis digital.</p>
+          <div class="prog-tags"><span>Hidroponik</span><span>Organik</span><span>Pemasaran</span></div>
+        </div>
+        <button class="prog-more" onclick="showProgDetail('ATPH')">Detail ↗</button>
+      </div>
+
+      <div class="prog-card" data-prog="MP">
+        <div class="prog-icon-box" onclick="event.stopPropagation();triggerProgIcon('mp')">
+          <span id="progEmoji_mp">🚜</span>
+          <img id="progIcon_mp" src="" style="display:none"/>
+          <div class="pib-ov">📷</div>
+        </div>
+        <input type="file" id="progIconInput_mp" accept="image/*" style="display:none" onchange="handleProgIcon(event,'mp')"/>
+        <div class="prog-meta">
+          <span class="prog-badge">Agribisnis</span>
+          <h3>Mekanisasi Pertanian</h3>
+          <p>Ahli pengoperasian, perawatan, dan perbaikan alat mesin pertanian modern.</p>
+          <div class="prog-tags"><span>Alsintan</span><span>Traktor</span><span>Teknologi</span></div>
+        </div>
+        <button class="prog-more" onclick="showProgDetail('MP')">Detail ↗</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="facilities" class="fac-sec">
+  <div class="container">
+    <div class="fac-layout">
+      <div class="fac-intro">
+        <div class="eyebrow">Fasilitas</div>
+        <h2 class="sec-title">Infrastruktur<br/><em>Kelas Industri</em></h2>
+        <p>Didukung peralatan dan sarana terkini yang memastikan setiap siswa mendapat pengalaman belajar praktis sesuai standar industri.</p>
+        <div class="fac-bignum"><span class="fbn-n">20<small>+</small></span><span class="fbn-l">Ruang Praktik & Lab</span></div>
+      </div>
+      <div class="fac-mosaic">
+        <div class="fac-tile" onclick="triggerFac('lab')">
+          <input type="file" id="facilityInput_lab" accept="image/*" style="display:none" onchange="handleFac(event,'lab')"/>
+          <div class="fac-tile-bg" id="facBg_lab"></div>
+          <div class="fac-tile-body"><span id="facIcon_lab">🖥️</span><h4>Lab Komputer</h4><p>150+ unit komputer modern</p></div>
+          <div class="fac-tile-hint">📷 Upload Foto</div>
+        </div>
+        <div class="fac-tile fac-tall" onclick="triggerFac('workshop')">
+          <input type="file" id="facilityInput_workshop" accept="image/*" style="display:none" onchange="handleFac(event,'workshop')"/>
+          <div class="fac-tile-bg" id="facBg_workshop"></div>
+          <div class="fac-tile-body"><span id="facIcon_workshop">🔧</span><h4>Workshop</h4><p>Peralatan industri lengkap</p></div>
+          <div class="fac-tile-hint">📷 Upload Foto</div>
+        </div>
+        <div class="fac-tile fac-wide" onclick="triggerFac('perpus')">
+          <input type="file" id="facilityInput_perpus" accept="image/*" style="display:none" onchange="handleFac(event,'perpus')"/>
+          <div class="fac-tile-bg" id="facBg_perpus"></div>
+          <div class="fac-tile-body"><span id="facIcon_perpus">📚</span><h4>Perpustakaan Digital</h4><p>10.000+ buku & e-library</p></div>
+          <div class="fac-tile-hint">📷 Upload Foto</div>
+        </div>
+        <div class="fac-tile" onclick="triggerFac('olahraga')">
+          <input type="file" id="facilityInput_olahraga" accept="image/*" style="display:none" onchange="handleFac(event,'olahraga')"/>
+          <div class="fac-tile-bg" id="facBg_olahraga"></div>
+          <div class="fac-tile-body"><span id="facIcon_olahraga">🏃</span><h4>Lapangan Olahraga</h4><p>Basket, voli, futsal</p></div>
+          <div class="fac-tile-hint">📷 Upload Foto</div>
+        </div>
+        <div class="fac-tile" onclick="triggerFac('kantin')">
+          <input type="file" id="facilityInput_kantin" accept="image/*" style="display:none" onchange="handleFac(event,'kantin')"/>
+          <div class="fac-tile-bg" id="facBg_kantin"></div>
+          <div class="fac-tile-body"><span id="facIcon_kantin">🍽️</span><h4>Kantin Sehat</h4><p>Hygienis & nyaman</p></div>
+          <div class="fac-tile-hint">📷 Upload Foto</div>
+        </div>
+        <div class="fac-tile" onclick="triggerFac('musholla')">
+          <input type="file" id="facilityInput_musholla" accept="image/*" style="display:none" onchange="handleFac(event,'musholla')"/>
+          <div class="fac-tile-bg" id="facBg_musholla"></div>
+          <div class="fac-tile-body"><span id="facIcon_musholla">🕌</span><h4>Musholla</h4><p>Representatif & bersih</p></div>
+          <div class="fac-tile-hint">📷 Upload Foto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="gal-sec">
+  <div class="container">
+    <div class="gal-head">
+      <div>
+        <div class="eyebrow light">Galeri</div>
+        <h2 class="sec-title light">Momen & <em>Prestasi</em></h2>
+      </div>
+      <label for="galleryBatchInput" class="btn-emerald" style="cursor:pointer;display:inline-flex;align-items:center;gap:8px;">↑ Upload Foto</label>
+      <input type="file" id="galleryBatchInput" accept="image/*" multiple style="display:none" onchange="handleGallery(event)"/>
+    </div>
+    <div class="gal-masonry" id="galleryGrid"></div>
+  </div>
+</section>
+
+<section id="testimonials" class="testi-sec">
+  <div class="container">
+    <div class="sec-head center" style="margin-bottom:3rem">
+      <div class="eyebrow">Alumni Berbicara</div>
+      <h2 class="sec-title">Cerita Sukses <em>Mereka</em></h2>
+    </div>
+    <div class="testi-grid" id="testimonialGrid"></div>
+  </div>
+</section>
+
+<section id="contact" class="contact-sec">
+  <div class="contact-aura"></div>
+  <div class="container">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <div class="eyebrow light">Hubungi Kami</div>
+        <h2 class="sec-title light">Siap Bergabung?<br/><em>Mari Bicara.</em></h2>
+        <div class="cinfo">
+          <div class="ci-row"><div class="ci-ico">📍</div><div><strong>Alamat</strong><p>Jl. Raya Gondang Lengkong, Balonggebang, Gondang, Nganjuk 64461</p></div></div>
+          <div class="ci-row"><div class="ci-ico">📞</div><div><strong>Telepon</strong><p>(0358) 611606 / 0851-5511-2401</p></div></div>
+          <div class="ci-row"><div class="ci-ico">✉️</div><div><strong>Email</strong><p>smkn1gondang@yahoo.co.id</p></div></div>
+          <div class="ci-row"><div class="ci-ico">🕐</div><div><strong>Jam Operasional</strong><p>Sen–Kam 07.00–15.30 · Jum 07.00–16.00</p></div></div>
+        </div>
+
+        <div style="margin-top:2.5rem; border-radius:16px; overflow:hidden; border:1px solid rgba(16,185,129,.2); box-shadow:0 10px 30px rgba(0,0,0,.5);">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3954.067332766395!2d111.96160161477755!3d-7.675924594465809!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e784b0bd15b9121%3A0x6a0535cf26d24f0!2sSMK%20Negeri%201%20Gondang!5e0!3m2!1sen!2sid!4v1680000000000!5m2!1sen!2sid" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <button class="btn-emerald" onclick="openPPDB()" style="margin-top:2rem;">Daftar PPDB Online →</button>
+      </div>
+      <div class="contact-form-box">
+        <h3>Kirim Pesan</h3>
+        <form onsubmit="handleContact(event)">
+          <div class="cf-avatar-row" onclick="triggerAvatar()">
+            <div id="avatarPreview" class="cf-avatar">👤</div>
+            <span>📷 Foto Profil (opsional)</span>
+            <input type="file" id="avatarInput" accept="image/*" style="display:none" onchange="handleAvatar(event)"/>
+          </div>
+          <div class="cf-row">
+            <div class="cf-group"><label>Nama</label><input type="text" id="cname" placeholder="Nama lengkap" required/></div>
+            <div class="cf-group"><label>Email</label><input type="email" id="cemail" placeholder="email@contoh.com" required/></div>
+          </div>
+          <div class="cf-group"><label>Telepon</label><input type="tel" id="cphone" placeholder="08xx-xxxx-xxxx" required/></div>
+          <div class="cf-group"><label>Pesan</label><textarea id="cmessage" rows="4" placeholder="Tulis pesan..." required></textarea></div>
+          <button type="submit" class="btn-emerald" style="width:100%;justify-content:center;">Kirim Pesan →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-gem">S1G</div>
+        <div><strong>SMKN 1 Gondang</strong><p>Unggul · Terampil · Berdaya Saing</p></div>
+      </div>
+      <div class="footer-col"><strong>Navigasi</strong><a onclick="nav('about')">Tentang Kami</a><a onclick="nav('programs')">Program Keahlian</a><a onclick="nav('facilities')">Fasilitas</a><a onclick="nav('gallery')">Galeri</a></div>
+      <div class="footer-col"><strong>Program</strong><a>TKJ</a><a>Teknik Sepeda Motor</a><a>Teknik Kendaraan Ringan</a><a>Mekanisasi Pertanian</a></div>
+      <div class="footer-col"><strong>PPDB</strong><a onclick="openPPDB()">Daftar Online</a><a>Persyaratan</a><a>Jadwal Seleksi</a><a>Pengumuman</a></div>
+    </div>
+    <div class="footer-bar">
+      <p>© 2026 SMKN 1 Gondang Nganjuk. All Rights Reserved.</p>
+      <div class="soc-links"><a class="sl">📘</a><a class="sl">📸</a><a class="sl">🐦</a><a class="sl">▶️</a></div>
+    </div>
+  </div>
+</footer>
+
+<div id="ppdbModal" class="modal-backdrop" onclick="closePPDB(event)">
+  <div class="ppdb-modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closePPDB()">✕</button>
+
+    <div class="ppdb-header">
+      <div class="ppdb-logo-row">
+        <div class="ppdb-gem">S1G</div>
+        <div><strong>PPDB Online 2025/2026</strong><span>SMKN 1 Gondang Nganjuk</span></div>
+      </div>
+      <div class="ppdb-steps" id="ppdbSteps">
+        <div class="ppdb-step active" data-step="1"><span class="step-num">1</span><span class="step-lbl">Data Diri</span></div>
+        <div class="step-conn"></div>
+        <div class="ppdb-step" data-step="2"><span class="step-num">2</span><span class="step-lbl">Data Orang Tua</span></div>
+        <div class="step-conn"></div>
+        <div class="ppdb-step" data-step="3"><span class="step-num">3</span><span class="step-lbl">Pilih Jurusan</span></div>
+        <div class="step-conn"></div>
+        <div class="ppdb-step" data-step="4"><span class="step-num">4</span><span class="step-lbl">Dokumen</span></div>
+        <div class="step-conn"></div>
+        <div class="ppdb-step" data-step="5"><span class="step-num">5</span><span class="step-lbl">Konfirmasi</span></div>
+      </div>
+    </div>
+
+    <div class="ppdb-step-content" id="ppdbStep1">
+      <h3 class="step-title">Data Diri Calon Siswa</h3>
+      <div class="ppdb-photo-upload" onclick="triggerPpdbPhoto()">
+        <div id="ppdbPhotoPreview" class="ppdb-photo-circle">
+          <span>📷</span><small>Foto 3×4</small>
+        </div>
+        <input type="file" id="ppdbPhotoInput" accept="image/*" style="display:none" onchange="handlePpdbPhoto(event)"/>
+        <p>Klik untuk upload foto terbaru (3×4, maks 2MB)</p>
+      </div>
+      <div class="form-grid">
+        <div class="fg full"><label>Nama Lengkap <span class="req">*</span></label><input type="text" id="p1_nama" placeholder="Sesuai akta kelahiran" required/></div>
+        <div class="fg"><label>NIK <span class="req">*</span></label><input type="text" id="p1_nik" placeholder="16 digit NIK" maxlength="16" required/></div>
+        <div class="fg"><label>NISN <span class="req">*</span></label><input type="text" id="p1_nisn" placeholder="10 digit NISN" maxlength="10" required/></div>
+        <div class="fg"><label>Tempat Lahir <span class="req">*</span></label><input type="text" id="p1_tmptlahir" placeholder="Kota/Kabupaten" required/></div>
+        <div class="fg"><label>Tanggal Lahir <span class="req">*</span></label><input type="date" id="p1_tgllahir" required/></div>
+        <div class="fg"><label>Jenis Kelamin <span class="req">*</span></label>
+          <select id="p1_jk" required><option value="">-- Pilih --</option><option>Laki-laki</option><option>Perempuan</option></select>
+        </div>
+        <div class="fg"><label>Agama <span class="req">*</span></label>
+          <select id="p1_agama" required><option value="">-- Pilih --</option><option>Islam</option><option>Kristen Protestan</option><option>Kristen Katolik</option><option>Hindu</option><option>Buddha</option><option>Konghucu</option></select>
+        </div>
+        <div class="fg full"><label>Alamat Lengkap <span class="req">*</span></label><input type="text" id="p1_alamat" placeholder="Jl. ..." required/></div>
+        <div class="fg"><label>RT / RW</label><input type="text" id="p1_rtrw" placeholder="001/002"/></div>
+        <div class="fg"><label>Desa/Kelurahan</label><input type="text" id="p1_desa" placeholder="Nama desa"/></div>
+        <div class="fg"><label>Kecamatan</label><input type="text" id="p1_kec" placeholder="Nama kecamatan"/></div>
+        <div class="fg"><label>Kabupaten/Kota</label><input type="text" id="p1_kab" placeholder="Nganjuk"/></div>
+        <div class="fg"><label>No. HP / WA <span class="req">*</span></label><input type="tel" id="p1_hp" placeholder="08xx-xxxx-xxxx" required/></div>
+        <div class="fg"><label>Email</label><input type="email" id="p1_email" placeholder="email@contoh.com"/></div>
+        <div class="fg full"><label>Asal Sekolah (SMP/MTs) <span class="req">*</span></label><input type="text" id="p1_asal" placeholder="Nama sekolah asal" required/></div>
+        <div class="fg"><label>Tahun Lulus <span class="req">*</span></label>
+          <select id="p1_lulusan" required><option value="">-- Tahun --</option><option>2025</option><option>2024</option><option>2023</option></select>
+        </div>
+        <div class="fg"><label>Nilai Rata-rata Rapor</label><input type="number" id="p1_nilai" placeholder="Contoh: 85.5" step="0.1" min="0" max="100"/></div>
+      </div>
+    </div>
+
+    <div class="ppdb-step-content hidden" id="ppdbStep2">
+      <h3 class="step-title">Data Orang Tua / Wali</h3>
+      <div class="ortu-tabs">
+        <button class="ortu-tab active" onclick="ortuSwitch(this,'ayah')">Ayah</button>
+        <button class="ortu-tab" onclick="ortuSwitch(this,'ibu')">Ibu</button>
+        <button class="ortu-tab" onclick="ortuSwitch(this,'wali')">Wali</button>
+      </div>
+      <div class="ortu-content" id="ortu-ayah">
+        <div class="form-grid">
+          <div class="fg full"><label>Nama Ayah <span class="req">*</span></label><input type="text" id="p2_nama_ayah" placeholder="Nama lengkap ayah" required/></div>
+          <div class="fg"><label>NIK Ayah</label><input type="text" id="p2_nik_ayah" placeholder="16 digit NIK"/></div>
+          <div class="fg"><label>Pendidikan Terakhir</label>
+            <select id="p2_pend_ayah"><option value="">-- Pilih --</option><option>SD</option><option>SMP</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2/S3</option></select>
+          </div>
+          <div class="fg"><label>Pekerjaan</label><input type="text" id="p2_kerja_ayah" placeholder="Profesi ayah"/></div>
+          <div class="fg"><label>Penghasilan / Bulan</label>
+            <select id="p2_gaji_ayah"><option value="">-- Pilih --</option><option>Kurang dari Rp 1 juta</option><option>Rp 1–3 juta</option><option>Rp 3–5 juta</option><option>Rp 5–10 juta</option><option>Di atas Rp 10 juta</option></select>
+          </div>
+          <div class="fg"><label>No. HP Ayah</label><input type="tel" id="p2_hp_ayah" placeholder="08xx-xxxx-xxxx"/></div>
+        </div>
+      </div>
+      <div class="ortu-content hidden" id="ortu-ibu">
+        <div class="form-grid">
+          <div class="fg full"><label>Nama Ibu <span class="req">*</span></label><input type="text" id="p2_nama_ibu" placeholder="Nama lengkap ibu" required/></div>
+          <div class="fg"><label>NIK Ibu</label><input type="text" id="p2_nik_ibu" placeholder="16 digit NIK"/></div>
+          <div class="fg"><label>Pendidikan Terakhir</label>
+            <select id="p2_pend_ibu"><option value="">-- Pilih --</option><option>SD</option><option>SMP</option><option>SMA/SMK</option><option>D3</option><option>S1</option><option>S2/S3</option></select>
+          </div>
+          <div class="fg"><label>Pekerjaan</label><input type="text" id="p2_kerja_ibu" placeholder="Profesi ibu"/></div>
+          <div class="fg"><label>No. HP Ibu</label><input type="tel" id="p2_hp_ibu" placeholder="08xx-xxxx-xxxx"/></div>
+        </div>
+      </div>
+      <div class="ortu-content hidden" id="ortu-wali">
+        <div class="form-grid">
+          <div class="fg full"><label>Nama Wali</label><input type="text" id="p2_nama_wali" placeholder="Nama lengkap wali"/></div>
+          <div class="fg"><label>Hubungan dengan Siswa</label><input type="text" id="p2_hub_wali" placeholder="Paman/Bibi/dll"/></div>
+          <div class="fg"><label>Pekerjaan Wali</label><input type="text" id="p2_kerja_wali" placeholder="Profesi wali"/></div>
+          <div class="fg"><label>No. HP Wali</label><input type="tel" id="p2_hp_wali" placeholder="08xx-xxxx-xxxx"/></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ppdb-step-content hidden" id="ppdbStep3">
+      <h3 class="step-title">Pilih Program Keahlian</h3>
+      <p class="step-desc">Pilih 2 pilihan jurusan (urutan prioritas). Penempatan berdasarkan nilai, kapasitas, dan hasil seleksi.</p>
+      <div class="jurusan-cards">
+        <label class="jcard"><input type="radio" name="pilihan1" value="TKJ"/><div class="jcard-inner"><span class="jcard-icon">💻</span><span class="jcard-name">Teknik Komputer & Jaringan</span><span class="jcard-prio">Pilihan 1</span></div></label>
+        <label class="jcard"><input type="radio" name="pilihan1" value="TSM"/><div class="jcard-inner"><span class="jcard-icon">🏍️</span><span class="jcard-name">Teknik Sepeda Motor</span><span class="jcard-prio">Pilihan 1</span></div></label>
+        <label class="jcard"><input type="radio" name="pilihan1" value="TKR"/><div class="jcard-inner"><span class="jcard-icon">🚗</span><span class="jcard-name">Teknik Kendaraan Ringan</span><span class="jcard-prio">Pilihan 1</span></div></label>
+        <label class="jcard"><input type="radio" name="pilihan1" value="APHP"/><div class="jcard-inner"><span class="jcard-icon">🍞</span><span class="jcard-name">Agribisnis Pengolahan Pangan</span><span class="jcard-prio">Pilihan 1</span></div></label>
+        <label class="jcard"><input type="radio" name="pilihan1" value="ATU"/><div class="jcard-inner"><span class="jcard-icon">🐔</span><span class="jcard-name">Agribisnis Ternak Unggas</span><span class="jcard-prio">Pilihan 1</span></div></label>
+        <label class="jcard"><input type="radio" name="pilihan1" value="ATPH"/><div class="jcard-inner"><span class="jcard-icon">🌾</span><span class="jcard-name">Agribisnis Tanaman Pangan</span><span class="jcard-prio">Pilihan 1</span></div></label>
+        <label class="jcard"><input type="radio" name="pilihan1" value="MP"/><div class="jcard-inner"><span class="jcard-icon">🚜</span><span class="jcard-name">Mekanisasi Pertanian</span><span class="jcard-prio">Pilihan 1</span></div></label>
+      </div>
+      <div class="pilihan2-section">
+        <label class="fg full" style="display:block;margin-top:1.5rem;"><strong>Pilihan Kedua</strong></label>
+        <select id="p3_pilihan2" style="width:100%;padding:.75rem 1rem;border:1.5px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:.9rem;margin-top:.5rem;">
+          <option value="">-- Pilih Jurusan Kedua --</option>
+          <option value="TKJ">Teknik Komputer & Jaringan</option>
+          <option value="TSM">Teknik Sepeda Motor</option>
+          <option value="TKR">Teknik Kendaraan Ringan</option>
+          <option value="APHP">Agribisnis Pengolahan Pangan</option>
+          <option value="ATU">Agribisnis Ternak Unggas</option>
+          <option value="ATPH">Agribisnis Tanaman Pangan</option>
+          <option value="MP">Mekanisasi Pertanian</option>
+        </select>
+      </div>
+      <div class="form-grid" style="margin-top:1.5rem;">
+        <div class="fg full"><label>Alasan Memilih Jurusan Tersebut</label><textarea id="p3_alasan" rows="3" placeholder="Ceritakan motivasi dan minat Anda..."></textarea></div>
+        <div class="fg full"><label>Rencana Setelah Lulus SMK</label>
+          <select id="p3_rencana"><option value="">-- Pilih --</option><option>Bekerja sesuai jurusan</option><option>Berwirausaha</option><option>Melanjutkan ke Perguruan Tinggi</option><option>Mengikuti program vokasi lanjutan</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="ppdb-step-content hidden" id="ppdbStep4">
+      <h3 class="step-title">Upload Dokumen Persyaratan</h3>
+      <p class="step-desc">Upload dokumen dalam format JPG, PNG, atau PDF. Ukuran maks. 2MB per file.</p>
+      <div class="doc-grid">
+        <div class="doc-item" onclick="triggerDoc('ijazah')">
+          <input type="file" id="docInput_ijazah" accept="image/*,.pdf" style="display:none" onchange="handleDoc(event,'ijazah')"/>
+          <div class="doc-icon" id="docIcon_ijazah">📄</div>
+          <div class="doc-label">Ijazah / SKL <span class="req">*</span></div>
+          <div class="doc-status" id="docStatus_ijazah">Belum diupload</div>
+        </div>
+        <div class="doc-item" onclick="triggerDoc('kk')">
+          <input type="file" id="docInput_kk" accept="image/*,.pdf" style="display:none" onchange="handleDoc(event,'kk')"/>
+          <div class="doc-icon" id="docIcon_kk">🏠</div>
+          <div class="doc-label">Kartu Keluarga <span class="req">*</span></div>
+          <div class="doc-status" id="docStatus_kk">Belum diupload</div>
+        </div>
+        <div class="doc-item" onclick="triggerDoc('akta')">
+          <input type="file" id="docInput_akta" accept="image/*,.pdf" style="display:none" onchange="handleDoc(event,'akta')"/>
+          <div class="doc-icon" id="docIcon_akta">📋</div>
+          <div class="doc-label">Akta Kelahiran <span class="req">*</span></div>
+          <div class="doc-status" id="docStatus_akta">Belum diupload</div>
+        </div>
+        <div class="doc-item" onclick="triggerDoc('rapor')">
+          <input type="file" id="docInput_rapor" accept="image/*,.pdf" style="display:none" onchange="handleDoc(event,'rapor')"/>
+          <div class="doc-icon" id="docIcon_rapor">📊</div>
+          <div class="doc-label">Rapor Kelas 9</div>
+          <div class="doc-status" id="docStatus_rapor">Belum diupload</div>
+        </div>
+        <div class="doc-item" onclick="triggerDoc('prestasi')">
+          <input type="file" id="docInput_prestasi" accept="image/*,.pdf" style="display:none" onchange="handleDoc(event,'prestasi')"/>
+          <div class="doc-icon" id="docIcon_prestasi">🏆</div>
+          <div class="doc-label">Sertifikat Prestasi</div>
+          <div class="doc-status" id="docStatus_prestasi">Belum diupload</div>
+        </div>
+        <div class="doc-item" onclick="triggerDoc('sktm')">
+          <input type="file" id="docInput_sktm" accept="image/*,.pdf" style="display:none" onchange="handleDoc(event,'sktm')"/>
+          <div class="doc-icon" id="docIcon_sktm">📜</div>
+          <div class="doc-label">SKTM (jika ada)</div>
+          <div class="doc-status" id="docStatus_sktm">Belum diupload</div>
+        </div>
+      </div>
+      <div class="doc-note">
+        <strong>📌 Catatan:</strong> Dokumen bertanda <span class="req">*</span> wajib diupload. Dokumen lain bersifat opsional namun dapat mempengaruhi penilaian.
+      </div>
+    </div>
+
+    <div class="ppdb-step-content hidden" id="ppdbStep5">
+      <h3 class="step-title">Konfirmasi & Submit</h3>
+      <div class="confirm-summary" id="confirmSummary">
+        </div>
+      <div class="pernyataan-box">
+        <label class="checkbox-row">
+          <input type="checkbox" id="chkPernyataan" required/>
+          <span>Saya menyatakan bahwa seluruh data dan dokumen yang saya isi adalah <strong>benar dan dapat dipertanggungjawabkan</strong>. Apabila dikemudian hari terbukti ada pemalsuan data, saya bersedia dikenakan sanksi sesuai ketentuan yang berlaku.</span>
+        </label>
+        <label class="checkbox-row" style="margin-top:.75rem;">
+          <input type="checkbox" id="chkTatatertib" required/>
+          <span>Saya bersedia mematuhi <strong>tata tertib sekolah</strong> dan peraturan yang berlaku di SMKN 1 Gondang Nganjuk.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="ppdb-footer">
+      <button class="btn-ghost-dark" id="ppdbPrev" onclick="ppdbPrev()" style="display:none">← Sebelumnya</button>
+      <div class="ppdb-foot-right">
+        <span class="ppdb-step-indicator" id="ppdbIndicator">Langkah 1 dari 5</span>
+        <button class="btn-emerald" id="ppdbNext" onclick="ppdbNext()">Selanjutnya →</button>
+        <button class="btn-emerald" id="ppdbSubmit" onclick="ppdbSubmit()" style="display:none">✓ Kirim Pendaftaran</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <button class="lb-x" onclick="closeLightbox()">✕</button>
+  <button class="lb-arr lb-l" onclick="event.stopPropagation();lbNav(-1)">‹</button>
+  <div class="lb-wrap" onclick="event.stopPropagation()">
+    <img id="lbImg" src="" alt=""/>
+    <div id="lbCaption" class="lb-cap"></div>
+  </div>
+  <button class="lb-arr lb-r" onclick="event.stopPropagation();lbNav(1)">›</button>
+</div>
+
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
